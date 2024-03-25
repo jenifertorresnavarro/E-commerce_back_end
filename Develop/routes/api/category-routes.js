@@ -36,16 +36,44 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+router.post('/',async (req, res) => {
   // create a new category
+  try {
+    // create new category using the request body data
+    const newCategory = await Category.create(req.body);
+    res.status(200).json(newCategory);
+  } catch (err) {
+    // error message 
+    res.status(400).json({ message: 'creation failed' });
+  }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a category by its `id` value
+  try {
+    // updating cateogry with matching ids 
+    const updated = await Category.update(req.body, { where: { id: req.params.id } });
+
+    
+    // error message or the updated data
+    !updated[0] ? res.status(404).json({ message: 'id not found' }) : res.status(200).json(updated);
+  } catch (err) {
+    // errors
+    res.status(500).json({ message: 'update failed' });
+  }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
+  try {
+    const deleted = await Category.destroy({ where: { id: req.params.id } });
+
+//errors
+    !deleted ? res.status(404).json({ message: 'id not found' }) : res.status(200).json(deleted);
+  } 
+  catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
