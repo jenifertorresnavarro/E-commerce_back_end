@@ -14,7 +14,7 @@ ProductTag.init(
       autoIncrement:true,
     },
     tag_id: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       refrences: {
         model: "tag",
         key: "id",
