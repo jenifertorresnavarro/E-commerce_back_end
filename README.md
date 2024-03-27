@@ -24,6 +24,18 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
 THEN I am able to successfully create, update, and delete data in my database
 
 ## Github Repo Link 
+https://github.com/jenifertorresnavarro/E-commerce_back_end
 
+## Video 
+Video of the challenge requirments 
+<video src="Untitled_%20Mar%2027,%202024%2012_05%20AM.mp4" controls title="Title"></video>
 
 ## Screenshot 
+![Alt text](<Screenshot 2024-03-27 at 12.12.58 AM.png>)
+
+## What I learned
+1. I learned how to create a successfull back end for an e-commerce website.
+2. I also learned how to connect MYSQL database and preview it on Insomnia (as well as editing in insomnia)
+
+## Licensce 
+MIT 
